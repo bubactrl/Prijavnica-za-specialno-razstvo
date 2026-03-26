@@ -74,7 +74,7 @@ button:hover{background:#1b5e20;}
 <input type="email" name="email" required>
 
 <label>Telefon <span class="required">*</span></label>
-<input type="tel" name="telefon" required>
+<input type="tel" name="telefon" placeholder="+386..." required>
 
 <h2>Podatki o psu</h2>
 <label>Ime psa <span class="required">*</span></label>
@@ -112,10 +112,14 @@ button:hover{background:#1b5e20;}
 <input type="text" name="st_redovnika" required>
 
 <label>Par <span class="required">*</span></label>
-<input type="text" name="par" required>
+<select name="par" required>
+  <option value="">Izberi</option>
+  <option>Da</option>
+  <option>Ne</option>
+</select>
 
-<label>Opombe <span class="required">*</span></label>
-<textarea rows="4" name="opombe" required></textarea>
+<label>Opombe</label>
+<textarea rows="4" name="opombe"></textarea>
 
 <h2>Plačilo</h2>
 <label>Znesek plačila (EUR) <span class="required">*</span></label>

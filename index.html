@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prijavnica – CAC razstava</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f4f6f8;}
+header{background:#2e7d32;color:white;text-align:center;padding:30px;}
+.container{max-width:800px;margin:30px auto;background:white;padding:30px;border-radius:10px;box-shadow:0 0 15px rgba(0,0,0,0.1);}
+h2{color:#2e7d32;}
+form{display:flex;flex-direction:column;}
+label{margin-top:15px;font-weight:bold;}
+input,select,textarea{padding:10px;margin-top:5px;border-radius:5px;border:1px solid #ccc;font-size:16px;}
+button{margin-top:25px;padding:15px;background:#2e7d32;color:white;font-size:16px;border:none;border-radius:8px;cursor:pointer;}
+button:hover{background:#1b5e20;}
+.required{color:red;}
+.success{background:#e8f5e9;color:#2e7d32;padding:15px;margin-top:20px;border-radius:8px;display:none;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🐕 Prijava na Specialno CAC razstavo</h1>
+  <p>25. April 2026 – Ivanje selo</p>
+</header>
+
+<div class="container">
+<h2>Podatki lastnika</h2>
+<form id="prijavaForm" action="https://script.google.com/macros/s/AKfycbxccEPON-yy3QM4YS5iwm0RaW3T4Bx2DwhwRKY-eCXYqf73bAe-v7vsgvFiAgaIW-Xs/exec" method="POST">
+<label>Ime lastnika <span class="required">*</span></label>
+<input type="text" name="ime" required>
+
+<label>Priimek lastnika <span class="required">*</span></label>
+<input type="text" name="priimek" required>
+
+<label>Državljanstvo <span class="required">*</span></label>
+<input type="text" name="drzavljanstvo" required>
+
+<label>Email <span class="required">*</span></label>
+<input type="email" name="email" required>
+
+<label>Telefon</label>
+<input type="tel" name="telefon">
+
+<h2>Podatki o psu</h2>
+<label>Ime psa <span class="required">*</span></label>
+<input type="text" name="ime_psa" required>
+
+<label>Spol</label>
+<select name="spol">
+  <option>Pes</option>
+  <option>Psica</option>
+</select>
+
+<label>Datum rojstva</label>
+<input type="date" name="datum">
+
+<label>Razred</label>
+<select name="razred">
+  <option>Prvaki</option>
+  <option>Odprti</option>
+  <option>Vmesni</option>
+  <option>Mladi</option>
+  <option>Najmlajši</option>
+  <option>Mladiči</option>
+  <option>Veterani</option>
+</select>
+
+<label>Ime matere</label>
+<input type="text" name="ime_matere">
+
+<label>Ime očeta</label>
+<input type="text" name="ime_oceta">
+
+<label>Št. redovnika</label>
+<input type="text" name="st_redovnika">
+
+<label>Par</label>
+<input type="text" name="par">
+
+<label>Opombe</label>
+<textarea rows="4" name="opombe"></textarea>
+
+<label>
+  <input type="checkbox" name="gdpr" value="Da" required> Soglašam s shranjevanjem osebnih podatkov (GDPR)
+</label>
+
+<button type="submit">Oddaj prijavo</button>
+<div class="success" id="successMessage">
+  ✅ Prijava je bila uspešno oddana!
+</div>
+</form>
+</div>
+
+<script>
+document.getElementById("prijavaForm").addEventListener("submit", function(event){
+  event.preventDefault();
+  var form = event.target;
+
+  fetch(form.action, {
+    method: "POST",
+    body: new FormData(form),
+    mode: "no-cors" // prepreči CORS napako
+  }).then(() => {
+    document.getElementById("successMessage").style.display = "block";
+    form.reset();
+  }).catch(error => {
+    alert("Napaka: " + error.message);
+  });
+});
+</script>
+
+</body>
+</html>

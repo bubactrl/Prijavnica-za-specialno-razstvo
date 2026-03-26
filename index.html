@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prijavnica – Specialna razstava za Šarplanince CAC</title>
+
 <style>
 body{margin:0;font-family:Arial,sans-serif;background:#f4f6f8;}
 header{background:#2e7d32;color:white;text-align:center;padding:30px;}
@@ -11,24 +12,32 @@ header{background:#2e7d32;color:white;text-align:center;padding:30px;}
 h2{color:#2e7d32;}
 form{display:flex;flex-direction:column;}
 label{margin-top:15px;font-weight:bold;}
-input,select,textarea{padding:10px;margin-top:5px;border-radius:5px;border:1px solid #ccc;font-size:16px;}
+input,select,textarea{padding:10px;margin-top:5px;border-radius:5px;border:1px solid #ccc;font-size:16px;width:100%;}
 button{margin-top:25px;padding:15px;background:#2e7d32;color:white;font-size:16px;border:none;border-radius:8px;cursor:pointer;}
 button:hover{background:#1b5e20;}
 .required{color:red;}
 .success{background:#e8f5e9;color:#2e7d32;padding:15px;margin-top:20px;border-radius:8px;display:none;}
 .payment-instructions{background:#e8f5e9;color:#2e7d32;padding:15px;margin-top:10px;border-radius:8px;}
+.phone-wrap{display:flex;gap:10px;}
+.phone-wrap select{width:45%;}
+.phone-wrap input{width:55%;}
 </style>
 </head>
+
 <body>
 
 <header>
-  <h1>🐕 Prijava na Specialno razstavo za Šarplanince</h1>
-  <p>25. April 2026 – Ljubljana</p>
+<h1>🐕 Prijava na Specialno razstavo za Šarplanince</h1>
+<p>25. April 2026 – Ljubljana</p>
 </header>
 
 <div class="container">
+
+<form id="prijavaForm"
+action="https://script.google.com/macros/s/AKfycbxccEPON-yy3QM4YS5iwm0RaW3T4Bx2DwhwRKY-eCXYqf73bAe-v7vsgvFiAgaIW-Xs/exec"
+method="POST">
+
 <h2>Podatki lastnika</h2>
-<form id="prijavaForm" action="https://script.google.com/macros/s/AKfycbxccEPON-yy3QM4YS5iwm0RaW3T4Bx2DwhwRKY-eCXYqf73bAe-v7vsgvFiAgaIW-Xs/exec" method="POST">
 
 <label>Ime lastnika <span class="required">*</span></label>
 <input type="text" name="ime" required>
@@ -38,53 +47,83 @@ button:hover{background:#1b5e20;}
 
 <label>Državljanstvo <span class="required">*</span></label>
 <select name="drzavljanstvo" required>
-  <option value="">Izberi državo</option>
-  <!-- Evropa -->
-  <option>Avstrija</option>
-  <option>Belgija</option>
-  <option>Češka</option>
-  <option>Danska</option>
-  <option>Finska</option>
-  <option>Francija</option>
-  <option>Nemčija</option>
-  <option>Grčija</option>
-  <option>Italija</option>
-  <option>Madžarska</option>
-  <option>Nizozemska</option>
-  <option>Norveška</option>
-  <option>Poljska</option>
-  <option>Portugalska</option>
-  <option>Romunija</option>
-  <option>Slovaška</option>
-  <option>Španija</option>
-  <option>Švedska</option>
-  <option>Švica</option>
-  <!-- Balkan -->
-  <option>Albanija</option>
-  <option>Bosna in Hercegovina</option>
-  <option>Črna gora</option>
-  <option>Kosovo</option>
-  <option>Makedonija</option>
-  <option>Slovenija</option>
-  <option>Hrvaška</option>
-  <option>Srbija</option>
+<option value="">Izberi državo</option>
+<option>Slovenija</option>
+<option>Hrvaška</option>
+<option>Srbija</option>
+<option>Bosna in Hercegovina</option>
+<option>Črna gora</option>
+<option>Makedonija</option>
+<option>Albanija</option>
+<option>Kosovo</option>
+<option>Avstrija</option>
+<option>Nemčija</option>
+<option>Italija</option>
+<option>Švica</option>
+<option>Francija</option>
+<option>Belgija</option>
+<option>Nizozemska</option>
+<option>Španija</option>
+<option>Portugalska</option>
+<option>Poljska</option>
+<option>Češka</option>
+<option>Slovaška</option>
+<option>Madžarska</option>
+<option>Romunija</option>
+<option>Grčija</option>
+<option>Danska</option>
+<option>Norveška</option>
+<option>Švedska</option>
 </select>
 
 <label>Email <span class="required">*</span></label>
 <input type="email" name="email" required>
 
+<!-- TELEFON -->
 <label>Telefon <span class="required">*</span></label>
-<input type="tel" name="telefon" placeholder="+386..." required>
+
+<div class="phone-wrap">
+<select id="drzavaTelefon" required>
+<option value="">Država</option>
+<option value="+386,8">🇸🇮 Slovenija (+386)</option>
+<option value="+385,9">🇭🇷 Hrvaška (+385)</option>
+<option value="+381,9">🇷🇸 Srbija (+381)</option>
+<option value="+387,8">🇧🇦 BiH (+387)</option>
+<option value="+382,8">🇲🇪 Črna gora (+382)</option>
+<option value="+389,8">🇲🇰 Makedonija (+389)</option>
+<option value="+355,9">🇦🇱 Albanija (+355)</option>
+<option value="+43,10">🇦🇹 Avstrija (+43)</option>
+<option value="+49,11">🇩🇪 Nemčija (+49)</option>
+<option value="+39,10">🇮🇹 Italija (+39)</option>
+<option value="+41,9">🇨🇭 Švica (+41)</option>
+<option value="+33,9">🇫🇷 Francija (+33)</option>
+<option value="+32,9">🇧🇪 Belgija (+32)</option>
+<option value="+34,9">🇪🇸 Španija (+34)</option>
+<option value="+48,9">🇵🇱 Poljska (+48)</option>
+<option value="+420,9">🇨🇿 Češka (+420)</option>
+<option value="+421,9">🇸🇰 Slovaška (+421)</option>
+<option value="+36,9">🇭🇺 Madžarska (+36)</option>
+<option value="+40,10">🇷🇴 Romunija (+40)</option>
+<option value="+30,10">🇬🇷 Grčija (+30)</option>
+<option value="+45,8">🇩🇰 Danska (+45)</option>
+<option value="+47,8">🇳🇴 Norveška (+47)</option>
+<option value="+46,10">🇸🇪 Švedska (+46)</option>
+</select>
+
+<input type="tel" id="telefonInput" name="telefon"
+placeholder="Vnesi številko" required>
+</div>
 
 <h2>Podatki o psu</h2>
+
 <label>Ime psa <span class="required">*</span></label>
 <input type="text" name="ime_psa" required>
 
 <label>Spol <span class="required">*</span></label>
 <select name="spol" required>
-  <option value="">Izberi</option>
-  <option>Pes</option>
-  <option>Psica</option>
+<option value="">Izberi</option>
+<option>Pes</option>
+<option>Psica</option>
 </select>
 
 <label>Datum rojstva <span class="required">*</span></label>
@@ -92,14 +131,14 @@ button:hover{background:#1b5e20;}
 
 <label>Razred <span class="required">*</span></label>
 <select name="razred" required>
-  <option value="">Izberi</option>
-  <option>Prvaki</option>
-  <option>Odprti</option>
-  <option>Vmesni</option>
-  <option>Mladi</option>
-  <option>Najmlajši</option>
-  <option>Mladiči</option>
-  <option>Veterani</option>
+<option value="">Izberi</option>
+<option>Prvaki</option>
+<option>Odprti</option>
+<option>Vmesni</option>
+<option>Mladi</option>
+<option>Najmlajši</option>
+<option>Mladiči</option>
+<option>Veterani</option>
 </select>
 
 <label>Ime matere <span class="required">*</span></label>
@@ -113,48 +152,63 @@ button:hover{background:#1b5e20;}
 
 <label>Par <span class="required">*</span></label>
 <select name="par" required>
-  <option value="">Izberi</option>
-  <option>Da</option>
-  <option>Ne</option>
+<option value="">Izberi</option>
+<option>Da</option>
+<option>Ne</option>
 </select>
 
 <label>Opombe</label>
 <textarea rows="4" name="opombe"></textarea>
 
 <h2>Plačilo</h2>
-<label>Znesek plačila (EUR) <span class="required">*</span></label>
+
+<label>Znesek plačila</label>
 <input type="number" name="placilo" value="50" readonly required>
 
 <div class="payment-instructions">
-  Nakažite **50 €** na TRR: <strong>SI56 1234 5678 9012 345</strong><br>
-  Po prejetem plačilu boste prejeli potrditveni e-mail.
+Nakažite <strong>50 €</strong> na TRR:<br>
+<strong>SI56 1234 5678 9012 345</strong><br><br>
+Po prejetem plačilu boste prejeli potrditveni e-mail.
 </div>
 
 <label>
-  <input type="checkbox" name="gdpr" value="Da" required> Soglašam s shranjevanjem osebnih podatkov (GDPR)
+<input type="checkbox" name="gdpr" value="Da" required>
+Soglašam s shranjevanjem osebnih podatkov (GDPR)
 </label>
 
 <button type="submit">Oddaj prijavo</button>
+
 <div class="success" id="successMessage">
-  ✅ Prijava je bila uspešno oddana!
+✅ Prijava je bila uspešno oddana!
 </div>
+
 </form>
 </div>
 
 <script>
+const drzavaSelect = document.getElementById('drzavaTelefon');
+const telInput = document.getElementById('telefonInput');
+
+drzavaSelect.addEventListener('change', () => {
+  if(!drzavaSelect.value) return;
+
+  const [code, maxLength] = drzavaSelect.value.split(',');
+  telInput.value = code + " ";
+  telInput.maxLength = parseInt(maxLength) + code.length + 1;
+  telInput.focus();
+});
+
 document.getElementById("prijavaForm").addEventListener("submit", function(event){
   event.preventDefault();
-  var form = event.target;
+  const form = event.target;
 
-  fetch(form.action, {
-    method: "POST",
-    body: new FormData(form),
-    mode: "no-cors" // prepreči CORS napako
-  }).then(() => {
-    document.getElementById("successMessage").style.display = "block";
+  fetch(form.action,{
+    method:"POST",
+    body:new FormData(form),
+    mode:"no-cors"
+  }).then(()=>{
+    document.getElementById("successMessage").style.display="block";
     form.reset();
-  }).catch(error => {
-    alert("Napaka: " + error.message);
   });
 });
 </script>

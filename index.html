@@ -18,36 +18,36 @@ button:hover{background:#1b5e20;}
 .required{color:red;}
 .success{background:#e8f5e9;color:#2e7d32;padding:15px;margin-top:20px;border-radius:8px;display:none;}
 .payment-instructions{background:#e8f5e9;color:#2e7d32;padding:15px;margin-top:10px;border-radius:8px;}
-.phone-wrap{display:flex;gap:10px;}
-.phone-wrap select{width:45%;}
-.phone-wrap input{width:55%;}
+small{color:#555;}
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>🐕 Prijava na Specialno razstavo za Šarplanince</h1>
+<h1>🐕 Prijava na Specialno razstavo za Šarplanince<br>
+Application for Special Šarplaninac Show</h1>
 <p>25. April 2026 – Ljubljana</p>
 </header>
 
 <div class="container">
 
 <form id="prijavaForm"
-action="https://script.google.com/macros/s/AKfycbxccEPON-yy3QM4YS5iwm0RaW3T4Bx2DwhwRKY-eCXYqf73bAe-v7vsgvFiAgaIW-Xs/exec"
-method="POST">
+action="https://tajazgur.app.n8n.cloud/webhook-test/Prijave na specialno razstavo za šarplanince"
+method="POST"
+enctype="multipart/form-data">
 
-<h2>Podatki lastnika</h2>
+<h2>Podatki lastnika / Owner Information</h2>
 
-<label>Ime lastnika <span class="required">*</span></label>
+<label>Ime / First Name <span class="required">*</span></label>
 <input type="text" name="ime" required>
 
-<label>Priimek lastnika <span class="required">*</span></label>
+<label>Priimek / Last Name <span class="required">*</span></label>
 <input type="text" name="priimek" required>
 
-<label>Državljanstvo <span class="required">*</span></label>
+<label>Državljanstvo / Nationality <span class="required">*</span></label>
 <select name="drzavljanstvo" required>
-<option value="">Izberi državo</option>
+<option value="">Izberi / Select</option>
 <option>Slovenija</option>
 <option>Hrvaška</option>
 <option>Srbija</option>
@@ -79,136 +79,95 @@ method="POST">
 <label>Email <span class="required">*</span></label>
 <input type="email" name="email" required>
 
-<!-- TELEFON -->
-<label>Telefon <span class="required">*</span></label>
+<label>Telefon / Phone <span class="required">*</span></label>
+<input type="tel" name="telefon" required>
 
-<div class="phone-wrap">
-<select id="drzavaTelefon" required>
-<option value="">Država</option>
-<option value="+386,8">🇸🇮 Slovenija (+386)</option>
-<option value="+385,9">🇭🇷 Hrvaška (+385)</option>
-<option value="+381,9">🇷🇸 Srbija (+381)</option>
-<option value="+387,8">🇧🇦 BiH (+387)</option>
-<option value="+382,8">🇲🇪 Črna gora (+382)</option>
-<option value="+389,8">🇲🇰 Makedonija (+389)</option>
-<option value="+355,9">🇦🇱 Albanija (+355)</option>
-<option value="+43,10">🇦🇹 Avstrija (+43)</option>
-<option value="+49,11">🇩🇪 Nemčija (+49)</option>
-<option value="+39,10">🇮🇹 Italija (+39)</option>
-<option value="+41,9">🇨🇭 Švica (+41)</option>
-<option value="+33,9">🇫🇷 Francija (+33)</option>
-<option value="+32,9">🇧🇪 Belgija (+32)</option>
-<option value="+34,9">🇪🇸 Španija (+34)</option>
-<option value="+48,9">🇵🇱 Poljska (+48)</option>
-<option value="+420,9">🇨🇿 Češka (+420)</option>
-<option value="+421,9">🇸🇰 Slovaška (+421)</option>
-<option value="+36,9">🇭🇺 Madžarska (+36)</option>
-<option value="+40,10">🇷🇴 Romunija (+40)</option>
-<option value="+30,10">🇬🇷 Grčija (+30)</option>
-<option value="+45,8">🇩🇰 Danska (+45)</option>
-<option value="+47,8">🇳🇴 Norveška (+47)</option>
-<option value="+46,10">🇸🇪 Švedska (+46)</option>
-</select>
+<h2>Podatki o psu / Dog Information</h2>
 
-<input type="tel" id="telefonInput" name="telefon"
-placeholder="Vnesi številko" required>
-</div>
-
-<h2>Podatki o psu</h2>
-
-<label>Ime psa <span class="required">*</span></label>
+<label>Ime psa / Dog Name <span class="required">*</span></label>
 <input type="text" name="ime_psa" required>
 
-<label>Spol <span class="required">*</span></label>
+<label>Spol / Sex <span class="required">*</span></label>
 <select name="spol" required>
-<option value="">Izberi</option>
-<option>Pes</option>
-<option>Psica</option>
+<option value="">Izberi / Select</option>
+<option>Pes / Male</option>
+<option>Psica / Female</option>
 </select>
 
-<label>Datum rojstva <span class="required">*</span></label>
+<label>Datum rojstva / Date of Birth <span class="required">*</span></label>
 <input type="date" name="datum" required>
 
-<label>Razred <span class="required">*</span></label>
+<label>Razred / Class <span class="required">*</span></label>
 <select name="razred" required>
-<option value="">Izberi</option>
-<option>Prvaki</option>
-<option>Odprti</option>
-<option>Vmesni</option>
-<option>Mladi</option>
-<option>Najmlajši</option>
-<option>Mladiči</option>
-<option>Veterani</option>
+<option value="">Izberi / Select</option>
+<option>Prvaki / Champions</option>
+<option>Odprti / Open</option>
+<option>Vmesni / Intermediate</option>
+<option>Mladi / Junior</option>
+<option>Najmlajši / Baby</option>
+<option>Mladiči / Puppy</option>
+<option>Veterani / Veteran</option>
 </select>
 
-<label>Ime matere <span class="required">*</span></label>
+<label>Ime matere / Mother's Name <span class="required">*</span></label>
 <input type="text" name="ime_matere" required>
 
-<label>Ime očeta <span class="required">*</span></label>
+<label>Ime očeta / Father's Name <span class="required">*</span></label>
 <input type="text" name="ime_oceta" required>
 
-<label>Št. redovnika <span class="required">*</span></label>
-<input type="text" name="st_redovnika" required>
-
-<label>Par <span class="required">*</span></label>
+<label>Par / Pair <span class="required">*</span></label>
 <select name="par" required>
-<option value="">Izberi</option>
-<option>Da</option>
-<option>Ne</option>
+<option value="">Izberi / Select</option>
+<option>Da / Yes</option>
+<option>Ne / No</option>
 </select>
 
-<label>Opombe</label>
+<label>Rodovnik (slika ali PDF) / Pedigree (image or PDF) <span class="required">*</span></label>
+<input type="file" name="rodovnik" accept="image/*,.pdf" required>
+<small>Max 5MB</small>
+
+<label>Opombe / Notes</label>
 <textarea rows="4" name="opombe"></textarea>
 
-<h2>Plačilo</h2>
+<h2>Plačilo / Payment</h2>
 
-<label>Znesek plačila</label>
-<input type="number" name="placilo" value="50" readonly required>
+<label>Znesek / Amount</label>
+<input type="number" name="placilo" value="50" readonly>
 
 <div class="payment-instructions">
 Nakažite <strong>50 €</strong> na TRR:<br>
 <strong>SI56 1234 5678 9012 345</strong><br><br>
-Po prejetem plačilu boste prejeli potrditveni e-mail.
+Send <strong>50 €</strong> to bank account above.<br>
+Po prejetem plačilu boste prejeli e-mail / You will receive confirmation after payment.
 </div>
 
 <label>
 <input type="checkbox" name="gdpr" value="Da" required>
-Soglašam s shranjevanjem osebnih podatkov (GDPR)
+Soglašam z obdelavo osebnih podatkov / I agree to data processing
 </label>
 
-<button type="submit">Oddaj prijavo</button>
+<button type="submit">Oddaj prijavo / Submit Application</button>
 
 <div class="success" id="successMessage">
-✅ Prijava je bila uspešno oddana!
+✅ Prijava uspešno oddana! / Application submitted successfully!
 </div>
 
 </form>
 </div>
 
 <script>
-const drzavaSelect = document.getElementById('drzavaTelefon');
-const telInput = document.getElementById('telefonInput');
-
-drzavaSelect.addEventListener('change', () => {
-  if(!drzavaSelect.value) return;
-
-  const [code, maxLength] = drzavaSelect.value.split(',');
-  telInput.value = code + " ";
-  telInput.maxLength = parseInt(maxLength) + code.length + 1;
-  telInput.focus();
-});
-
 document.getElementById("prijavaForm").addEventListener("submit", function(event){
   event.preventDefault();
   const form = event.target;
 
   fetch(form.action,{
     method:"POST",
-    body:new FormData(form),
-    mode:"no-cors"
+    body:new FormData(form)
   }).then(()=>{
     document.getElementById("successMessage").style.display="block";
     form.reset();
+  }).catch(()=>{
+    alert("Prišlo je do napake / An error occurred");
   });
 });
 </script>
